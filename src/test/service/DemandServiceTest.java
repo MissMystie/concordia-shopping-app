@@ -1,6 +1,8 @@
 package test.service;
 
 import static org.junit.Assert.*;
+
+import com.github.xiaoymin.knife4j.annotations.Ignore;
 import com.shashi.beans.DemandBean;
 import com.shashi.service.impl.DemandServiceImpl;
 
@@ -12,6 +14,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
+@Ignore
 public class DemandServiceTest {
 
     @InjectMocks

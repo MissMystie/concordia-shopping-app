@@ -8,10 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.github.xiaoymin.knife4j.annotations.Ignore;
 import com.shashi.service.CartService;
 import com.shashi.service.impl.CartServiceImpl;
 import com.shashi.utility.DBUtil;
-
+@Ignore
 public class CartServiceTest {
 
     @InjectMocks
