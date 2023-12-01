@@ -167,7 +167,7 @@
 						<td><%=product.getProdPrice()%></td>
 						<td style="color: #39FF14"><%=product.getCurrentDiscount()%></td>
 						<td><%=new OrderServiceImpl().countSoldItem(product.getProdId())%></td>
-						<td style="color: red"><%=product.getProdQuantity()%></td>
+						<td><%=product.getProdQuantity()%></td>
 						<td>
 							<form method="post">
 								<button type="submit"

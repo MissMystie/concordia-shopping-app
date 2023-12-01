@@ -345,6 +345,7 @@ public class ProductServiceImpl implements ProductService {
 					product.setProdImage(rs.getAsciiStream(8));
 					if( product.getCurrentDiscount() > 0 ) {
 						products.add(product);
+					
 					}
 					
 				

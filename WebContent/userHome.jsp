@@ -86,9 +86,14 @@
 					%>
 					<p class="productinfo"><%=description%>..
 					</p>
+					<%if (product.isDiscounted()) {%>
+					<p style="color: #FFFF00"class="price">
+					<% }
+					else { %>
 					<p class="price">
-						Rs
-						<%=product.getProdPrice()%>
+					<% } %>
+						$
+						<%=product.getCurrentPrice()%>
 					</p>
 					<form method="post">
 						<%
