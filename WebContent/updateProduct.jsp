@@ -80,21 +80,15 @@
 						%>
 						<label for="producttype">Product Type</label> <select name="type"
 							id="producttype" class="form-control" required>
-							<option value="mobile"
-								<%="mobile".equalsIgnoreCase(ptype) ? "selected" : ""%>>MOBILE</option>
-							<option value="tv"
-								<%="tv".equalsIgnoreCase(ptype) ? "selected" : ""%>>TV</option>
-							<option value="camera"
-								<%="camera".equalsIgnoreCase(ptype) ? "selected" : ""%>>CAMERA</option>
-							<option value="laptop"
-								<%="laptop".equalsIgnoreCase(ptype) ? "selected" : ""%>>LAPTOP</option>
-							<option value="tablet"
-								<%="tablet".equalsIgnoreCase(ptype) ? "selected" : ""%>>TABLET</option>
-							<option value="speaker"
-								<%="speaker".equalsIgnoreCase(ptype) ? "selected" : ""%>>SPEAKER</option>
-							<option value="other"
-								<%="other".equalsIgnoreCase(ptype) ? "selected" : ""%>>Some
-								Other Appliances</option>
+							
+							<option value="ENCS"
+								<%="ENCS".equalsIgnoreCase(ptype) ? "selected" : ""%>>ENCS</option>
+							<option value="AAS"
+								<%="".equalsIgnoreCase(ptype) ? "selected" : ""%>>AAS</option>
+							<option value="JMSB"
+								<%="JMSB".equalsIgnoreCase(ptype) ? "selected" : ""%>>JMSB</option>
+							<option value="FA"
+								<%="FA".equalsIgnoreCase(ptype) ? "selected" : ""%>>FA</option>
 						</select>
 					</div>
 				</div>
@@ -115,6 +109,12 @@
 							value="<%=product.getProdQuantity()%>"
 							placeholder="Enter Stock Quantity" class="form-control"
 							id="last_name" name="quantity" required>
+					</div>
+					<div class="col-md-6 form-group">
+						<label for="last_name">Current Discount</label> <input type="number"
+							value="<%=product.getCurrentDiscount()%>"
+							placeholder="Enter Product discount" class="form-control"
+							id="last_name" name="discount" required>
 					</div>
 				</div>
 				<div class="row text-center">
