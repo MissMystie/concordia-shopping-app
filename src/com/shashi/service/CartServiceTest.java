@@ -1,4 +1,5 @@
 package com.shashi.service;
+import com.shashi.beans.CartBean;
 
 import static org.junit.Assert.*;
 
