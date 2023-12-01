@@ -3,6 +3,7 @@ package com.shashi.service;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import com.shashi.beans.DemandBean;
 import java.util.ArrayList;
 import java.util.List;
 
