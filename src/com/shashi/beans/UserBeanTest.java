@@ -1,3 +1,5 @@
+package com.shashi.beans;
+
 import static org.junit.Assert.*;
 
 import java.util.HashSet;
