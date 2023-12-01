@@ -1,3 +1,5 @@
+package com.shashi.service;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
