@@ -15,7 +15,7 @@ import com.shashi.utility.DBUtil;
 public class CartServiceTest {
 
     @InjectMocks
-    private CartService cartService = new CartServiceImpl(); // Using actual implementation for simplicity
+    private CartService cartService = new CartServiceImpl(); 
 
     @Mock
     private DBUtil dbUtil; // Mocking DBUtil for providing connection
