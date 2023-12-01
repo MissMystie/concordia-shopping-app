@@ -2,6 +2,7 @@ package com.shashi.service;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
+import com.shashi.beans.ProductBean;
 
 import org.junit.Before;
 import org.junit.Test;
