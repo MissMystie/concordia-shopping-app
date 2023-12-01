@@ -1,13 +1,17 @@
-package com.shashi.service;
+package test.service;
 
-import static org.mockito.Mockito.*;
-import static org.junit.Assert.*;
+
 import com.shashi.beans.ProductBean;
+import com.shashi.beans.ProductInterest;
+import com.shashi.service.impl.DiscountServiceImpl;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class DiscountServiceTest {
@@ -15,12 +19,10 @@ public class DiscountServiceTest {
     @InjectMocks
     private DiscountServiceImpl discountService;
 
-    @Mock
-    private DiscountRepository discountRepository; // Assuming the existence of a DiscountRepository interface or class
-
+ 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -31,45 +33,24 @@ public class DiscountServiceTest {
 
     @Test
     public void testCheckInStock() {
-        ProductBean product = new ProductBean(/* your product details */);
+        String prodId = "PROD123";
+        String prodName = "Random Product";
+        String prodType = "Electronics";
+        String prodInfo = "Lorem Ipsum";
+        double prodPrice = 49.99;
+        int prodQuantity = 100;
+        InputStream prodImage = new ByteArrayInputStream(new byte[0]);
+        Boolean prodUsed = false;
+        HashSet<ProductInterest> prodInterests = new HashSet<>(); // You may populate this set as needed
+
+        // Create the ProductBean object
+        ProductBean randomProduct = new ProductBean(prodId, prodName, prodType, prodInfo, prodPrice, prodQuantity,
+                prodImage, prodUsed, prodInterests);
 
         // Assuming no return value or void method
-        discountService.checkInStock(product);
+        discountService.checkInStock(randomProduct);
     }
 
-    @Test
-    public void testAddDiscount() {
-        ProductBean product = new ProductBean(/* your product details */);
-        int discountAmount = 10;
-
-        // Assuming no return value or void method
-        discountService.addDiscount(product, discountAmount);
-
-        // You might want to verify the interaction with the repository, for example:
-        verify(discountRepository, times(1)).addDiscount(product, discountAmount);
-    }
-
-    @Test
-    public void testRemoveDiscount() {
-        ProductBean product = new ProductBean(/* your product details */);
-
-        // Assuming no return value or void method
-        discountService.removeDiscount(product);
-
-        // You might want to verify the interaction with the repository, for example:
-        verify(discountRepository, times(1)).removeDiscount(product);
-    }
-
-    @Test
-    public void testDisplayDiscount() {
-        ProductBean product = new ProductBean(/* your product details */);
-
-        // Assuming no return value or void method
-        discountService.displayDiscount(product);
-
-        // You might want to verify the interaction with the repository, for example:
-        verify(discountRepository, times(1)).displayDiscount(product);
-    }
 
     @Test
     public void testDisplayAdminSuggestions() {

@@ -1,17 +1,16 @@
-package com.shashi.service;
+package test.service;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 import com.shashi.beans.OrderBean;
 import com.shashi.beans.OrderDetails;
 import com.shashi.beans.TransactionBean;
+import com.shashi.service.impl.OrderServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 public class OrderServiceTest {
@@ -19,15 +18,11 @@ public class OrderServiceTest {
     @InjectMocks
     private OrderServiceImpl orderService;
 
-    @Mock
-    private OrderRepository orderRepository; // Assuming the existence of an OrderRepository interface or class
-
-    @Mock
-    private TransactionRepository transactionRepository; // Assuming the existence of a TransactionRepository interface or class
+  
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -35,7 +30,6 @@ public class OrderServiceTest {
         String userName = "user123";
         double paidAmount = 100.0;
 
-        when(transactionRepository.addTransaction(any(TransactionBean.class))).thenReturn(true);
 
         String result = orderService.paymentSuccess(userName, paidAmount);
 
@@ -44,9 +38,8 @@ public class OrderServiceTest {
 
     @Test
     public void testAddOrder() {
-        OrderBean order = new OrderBean(/* your order details */);
+        OrderBean order = new OrderBean();
 
-        when(orderRepository.addOrder(order)).thenReturn(true);
 
         boolean result = orderService.addOrder(order);
 
@@ -55,9 +48,8 @@ public class OrderServiceTest {
 
     @Test
     public void testAddTransaction() {
-        TransactionBean transaction = new TransactionBean(/* your transaction details */);
+        TransactionBean transaction = new TransactionBean();
 
-        when(transactionRepository.addTransaction(transaction)).thenReturn(true);
 
         boolean result = orderService.addTransaction(transaction);
 
@@ -68,7 +60,6 @@ public class OrderServiceTest {
     public void testCountSoldItem() {
         String prodId = "prod456";
 
-        when(orderRepository.countSoldItem(prodId)).thenReturn(5);
 
         int result = orderService.countSoldItem(prodId);
 
@@ -81,7 +72,6 @@ public class OrderServiceTest {
         orders.add(new OrderBean(/* order details */));
         orders.add(new OrderBean(/* order details */));
 
-        when(orderRepository.getAllOrders()).thenReturn(orders);
 
         List<OrderBean> result = orderService.getAllOrders();
 
@@ -96,7 +86,6 @@ public class OrderServiceTest {
         orders.add(new OrderBean(/* order details */));
         orders.add(new OrderBean(/* order details */));
 
-        when(orderRepository.getOrdersByUserId(emailId)).thenReturn(orders);
 
         List<OrderBean> result = orderService.getOrdersByUserId(emailId);
 
@@ -111,7 +100,6 @@ public class OrderServiceTest {
         orderDetailsList.add(new OrderDetails(/* order details */));
         orderDetailsList.add(new OrderDetails(/* order details */));
 
-        when(orderRepository.getAllOrderDetails(userEmailId)).thenReturn(orderDetailsList);
 
         List<OrderDetails> result = orderService.getAllOrderDetails(userEmailId);
 
@@ -123,7 +111,6 @@ public class OrderServiceTest {
         String orderId = "order123";
         String prodId = "prod456";
 
-        when(orderRepository.shipNow(orderId, prodId)).thenReturn("Product shipped successfully");
 
         String result = orderService.shipNow(orderId, prodId);
 

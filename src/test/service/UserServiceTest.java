@@ -1,27 +1,24 @@
-package com.shashi.service;
+package test.service;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import com.shashi.beans.UserBean;
 import com.shashi.beans.UserType;
+import com.shashi.service.impl.UserServiceImpl;
 
 public class UserServiceTest {
 
     @InjectMocks
     private UserServiceImpl userService;
 
-    @Mock
-    private UserRepository userRepository; // Assuming the existence of a UserRepository interface or class
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -32,10 +29,8 @@ public class UserServiceTest {
         String address = "123 Main St";
         int pinCode = 12345;
         String password = "password123";
-        UserType userType = UserType.REGULAR;
+        UserType userType = UserType.Student;
 
-        when(userRepository.registerUser(userName, mobileNo, emailId, address, pinCode, password, userType))
-                .thenReturn("User registered successfully");
 
         String result = userService.registerUser(userName, mobileNo, emailId, address, pinCode, password, userType);
 
@@ -46,7 +41,6 @@ public class UserServiceTest {
     public void testRegisterUserWithUserBean() {
         UserBean user = new UserBean(/* your user details */);
 
-        when(userRepository.registerUser(user)).thenReturn("User registered successfully");
 
         String result = userService.registerUser(user);
 
@@ -57,7 +51,6 @@ public class UserServiceTest {
     public void testIsRegistered() {
         String emailId = "john@example.com";
 
-        when(userRepository.isRegistered(emailId)).thenReturn(true);
 
         boolean result = userService.isRegistered(emailId);
 
@@ -69,7 +62,6 @@ public class UserServiceTest {
         String emailId = "john@example.com";
         String password = "password123";
 
-        when(userRepository.isValidCredential(emailId, password)).thenReturn(true);
 
         String result = userService.isValidCredential(emailId, password);
 
@@ -81,7 +73,6 @@ public class UserServiceTest {
         String emailId = "john@example.com";
         String password = "invalidpassword";
 
-        when(userRepository.isValidCredential(emailId, password)).thenReturn(false);
 
         String result = userService.isValidCredential(emailId, password);
 
@@ -93,9 +84,8 @@ public class UserServiceTest {
         String emailId = "john@example.com";
         String password = "password123";
 
-        UserBean user = new UserBean(/* user details */);
+        UserBean user = new UserBean();
 
-        when(userRepository.getUserDetails(emailId, password)).thenReturn(user);
 
         UserBean result = userService.getUserDetails(emailId, password);
 
@@ -106,7 +96,6 @@ public class UserServiceTest {
     public void testGetFName() {
         String emailId = "john@example.com";
 
-        when(userRepository.getFName(emailId)).thenReturn("John");
 
         String result = userService.getFName(emailId);
 
@@ -117,7 +106,6 @@ public class UserServiceTest {
     public void testGetUserAddr() {
         String userId = "user123";
 
-        when(userRepository.getUserAddr(userId)).thenReturn("123 Main St");
 
         String result = userService.getUserAddr(userId);
 

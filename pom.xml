@@ -83,7 +83,7 @@
         		<groupId>junit</groupId>
         		<artifactId>junit</artifactId>
         		<version>4.12</version>
-        		<scope>test</scope>
+        		<!-- <scope>test</scope> -->
     		</dependency>
 
     		<!-- Mockito -->
@@ -91,7 +91,13 @@
         		<groupId>org.mockito</groupId>
         		<artifactId>mockito-core</artifactId>
         		<version>3.12.4</version> <!-- or the latest version available -->
-        		<scope>test</scope>
+        		<!-- <scope>test</scope> -->
     		</dependency>
-	</dependencies>
+	
+   <dependency>
+     <groupId>io.gitee.dongjeremy</groupId>
+     <artifactId>agenor-core</artifactId>
+     <version>1.1.0</version>
+   </dependency>
+ </dependencies>
 </project>
