@@ -2,7 +2,8 @@ package com.shashi.service;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
+import com.shashi.beans.ProductBean;
+import com.shashi.beans.ProductInterest;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
